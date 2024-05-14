@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/src/img/favicon.svg" />
+    <title>B5Регламент</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      * {
+        padding: 0px;
+        margin: 0px;
+        border: none;
+        font-family: "Commissioner";
+      }
+
+      img {
+        max-width: 100%;
+        min-height: 0;
+        object-fit: contain;
+      }
+
+      .page-container__wrapper {
+        min-height: 100vh;
+        background: rgba(242, 242, 242, 1);
+        width: 100%;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+      }
+
+      header {
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        z-index: 100;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        padding: 9px 0px;
+        background: rgba(250, 250, 250, 1);
+      }
+
+      section {
+        height: 740px;
+        max-width: 1280px;
+        padding-top: 40px;
+        /* padding-bottom: 50px; */
+      }
+
+      /* ПЕРЕИСПОЛЬЗУЕМЫЕ СТИЛИ */
+      .title h1 {
+        font-weight: 600;
+        font-size: 48px;
+        color: rgba(51, 51, 51, 1);
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      .title h3 {
+        font-weight: 600;
+        font-size: 30px;
+        color: rgba(140, 140, 140, 1);
+        text-align: center;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      .title p {
+        font-weight: 400;
+        font-size: 12px;
+        color: rgba(140, 140, 140, 1);
+      }
+
+      .main-text-container {
+        padding: 42px;
+        border-radius: 16px;
+        background-color: white;
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+        margin-bottom: 42px;
+      }
+
+      .main-text-container:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+
+      .main-text-container h2 {
+        font-size: 36px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .main-text-container p {
+        font-size: 22px;
+        color: rgba(0, 0, 0, 1);
+      }
+
+      .main-text-container li {
+        font-size: 22px;
+        font-weight: 400;
+      }
+
+      .main-text-container ul {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-left: 15px;
+      }
+
+      .orange-button {
+        max-width: 300px;
+        width: 100%;
+        color: white;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        border-bottom: unset !important;
+        background: #f94f0d !important;
+        padding: 12px 56px !important;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .container_centred {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      /* ПЕРЕИСПОЛЬЗУЕМЫЕ СТИЛИ. КОНЕЦ*/
+
+      /* СЕКЦИЯ 1 */
+      .main-section {
+        gap: 60px;
+      }
+
+      .main-section__container {
+        max-width: 890px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+
+      .main-section__img {
+        min-height: 0;
+        object-fit: contain;
+      }
+
+      .mobile.main-section__img {
+        display: none;
+      }
+
+      /* СЕКЦИЯ 2 */
+      .second-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 42px;
+      }
+
+      .second-section__container {
+        display: flex;
+        max-width: 100%;
+        gap: 40px;
+      }
+
+      .second-section__left {
+        max-width: 100%;
+        flex: 1 1;
+      }
+
+      .second-section__img {
+        max-width: 100%;
+        min-width: 0;
+        width: 100%;
+        flex: 2 1;
+      }
+
+      /* СЕКЦИЯ 3 */
+
+      /* СЕКЦИЯ 4 */
+      .four-section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .four-section__text {
+        margin-bottom: 42px;
+      }
+
+      .four-section__img.mobile {
+        display: none;
+      }
+
+      /* СЕКЦИЯ 5 */
+      .five-section__bottom-container {
+        max-width: 870px;
+        margin: 0 auto;
+      }
+
+      /* СЕКЦИЯ 6 */
+      .six-section img.mobile {
+        display: none;
+      }
+
+      /* СЕКЦИЯ 7 */
+      .seven-section form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-width: 600px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .seven-section__top-container {
+        margin-bottom: 135px;
+      }
+
+      .seven-section form input {
+        background: transparent;
+        border-bottom: 2px solid #b0b0b0;
+        padding: 8px 16px;
+        outline: none;
+        font-size: 16px;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 1023px) {
+        .main-text-container h2 {
+          font-size: 30px;
+        }
+        .main-text-container p {
+          font-size: 20px;
+        }
+        .main-text-container li {
+          font-size: 20px;
+        }
+
+        .main-text-container {
+          width: 100%;
+          padding: 36px;
+        }
+
+        .mobile.main-section__img {
+          display: unset;
+        }
+        .main-section__img {
+          display: none;
+        }
+
+        .page-container__wrapper {
+          padding: 50px 30px;
+          gap: 40px;
+        }
+
+        .second-section {
+          flex-direction: column;
+        }
+        .second-section__container {
+          width: 100%;
+        }
+
+        .second-section__img {
+          flex: unset;
+        }
+
+        .five-section__bottom-container {
+          max-width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .title h1 {
+          font-size: 26px;
+        }
+        .title h3 {
+          font-size: 18px;
+        }
+
+        section {
+          height: 830px;
+        }
+
+        .main-text-container {
+          padding: 25px;
+        }
+
+        .main-text-container h2 {
+          font-size: 18px;
+        }
+        .main-text-container p {
+          font-size: 14px;
+        }
+        .main-text-container li {
+          font-size: 14px;
+        }
+
+        .six-section img.mobile {
+          display: unset;
+        }
+
+        .six-section img {
+          display: none;
+        }
+
+        .four-section__img.mobile {
+          display: unset;
+        }
+        .four-section__img {
+          display: none;
+        }
+        .orange-button {
+          max-width: unset;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container__wrapper">
+      <header>
+        <img src="img/B5G.svg" />
+      </header>
+
+      <!-- СЕКЦИЯ 1 -->
+      <section class="main-section container_centred">
+        <img class="main-section__img mobile" src="img/section1-2.png" />
+        <div class="main-section__container title">
+          <h1>Б5Регламент</h1>
+          <h3>ПО для автоматизированного решения комплексных задач при помощи бизнес-процессов</h3>
+          <button class="orange-button"><img src="img/Download.svg" /> Скачать документацию</button>
+          <p>Функционал и возможности Б5Регламент.pptx</p>
+        </div>
+        <img class="main-section__img" src="img/section1.png" />
+      </section>
+
+      <!-- СЕКЦИЯ 2 -->
+      <section class="second-section">
+        <div class="second-section__container">
+          <div class="second-section__left main-text-container">
+            <h2>Функционал</h2>
+            <ul>
+              <li>Реестр бизнес-процессов</li>
+              <li>Конструктор бизнес-процессов</li>
+              <li>Модель BPMN 2.0.</li>
+            </ul>
+          </div>
+        </div>
+        <img class="second-section__img" src="img/section2.png" />
+      </section>
+
+      <!-- СЕКЦИЯ 3 -->
+      <section class="third-section container_centred">
+        <div class="main-text-container">
+          <h2>Б5Регламент</h2>
+          <p>
+            Б5Регламент содержит конструктор бизнес-процессов – визуальный графический конструктор с
+            интуитивно понятным интерфейсом, который позволяет описывать структуру процесса,
+            используя удобные и наглядные блок-схемы для указания последовательности выполнения
+            автоматических этапов и этапов, требующих участия специалиста.
+          </p>
+        </div>
+      </section>
+
+      <!-- СЕКЦИЯ 4 -->
+      <section class="four-section container_centred">
+        <div class="main-text-container four-section__text">
+          <h2>Реестр бизнес-процессов</h2>
+          <p>
+            Реестр бизнес-процессов содержит информацию о различных бизнес-процессах организации. Он
+            помогает систематизировать и контролировать выполнение процессов, а также отслеживать их
+            эффективность.:
+          </p>
+        </div>
+        <img class="four-section__img" src="img/section4.png" />
+        <img class="four-section__img mobile" src="img/section4-2.png" />
+        <img class="four-section__img mobile" src="img/section4-3.png" />
+      </section>
+
+      <!-- СЕКЦИЯ 5 -->
+      <section class="five-section container_centred">
+        <div class="main-text-container">
+          <h2>Конструктор бизнес-процессов</h2>
+          <p>
+            Инструмент, который позволяет моделировать, анализировать и оптимизировать
+            бизнес-процессы в организации.
+          </p>
+        </div>
+        <div class="main-text-container five-section__bottom-container">
+          <p>Элементы конструктора бизнес процессов в аннотации BPMN 2.0:</p>
+          <ul>
+            <li>Пул (область). Определяет границы процесса и содержит все элементы.</li>
+            <li>Дорожки (отделы). Разделяют пул на зоны ответственности исполнителей.</li>
+            <li>Действия (задачи). Описывают функции, выполняемые участниками процесса.</li>
+            <li>События. Обозначают факты, происходящие в рамках процесса.</li>
+            <li>Точки принятия решений (развилки). Определяют варианты ветвления процесса.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- СЕКЦИЯ 6 -->
+      <section class="six-section container_centred">
+        <div class="main-text-container">
+          <h2>Модель BPMN 2.0.</h2>
+          <p>
+            Нотация для описания бизнес-процессов, которая широко используется в бизнес-аналитике.
+            Она позволяет разделять исполнителей, наглядно представлять развилки процесса и упрощает
+            моделирование сложных процессов с большим количеством участников.
+          </p>
+        </div>
+        <img src="img/section6.png" />
+        <img class="mobile" src="img/section6-2.png" />
+      </section>
+
+      <!-- СЕКЦИЯ 7 -->
+      <section class="seven-section container_centred">
+        <div class="seven-section__top-container title">
+          <h1>Оставьте контактные данные.</h1>
+          <h3>Мы свяжемся с вами в течение 3-х рабочих дней.</h3>
+        </div>
+
+        <form action="" class="form">
+          <input type="text" name="Name" placeholder="Имя*" />
+          <input type="text" name="Email" placeholder="Email*" />
+          <input type="text" name="Phone" placeholder="Телефон" />
+          <input class="orange-button" type="submit" value="Оставить контактные данные" />
+        </form>
+      </section>
+    </div>
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        if (!formData.get("Name") || !formData.get("Email")) {
+          alert("Заполните обязательные поля");
+          return;
+        }
+        formData.append("Resource", "Б5Регламент");
+        fetch(
+          "https://script.google.com/macros/s/AKfycbzxR28mlllwKTv9lI0MkumuJ_RjrJsOJCxUyqpxdH8yvMk9kJXArsm3Mq4QXcvKwBbnIg/exec",
+          {
+            method: "POST",
+            body: formData,
+          }
+        )
+          .then((response) => {
+            if (response.ok) {
+              alert("Данные успешно отправлены!");
+              form.reset();
+            } else {
+              throw new Error("Ошибка при отправке данных");
+            }
+          })
+          .catch((error) => {
+            console.error("Ошибка:", error);
+            alert("Произошла ошибка при отправке данных. Пожалуйста, попробуйте еще раз.");
+          });
+      }
+
+      const form = document.querySelector(".form");
+      form.addEventListener("submit", submitForm);
+    </script>
+  </body>
+</html>
